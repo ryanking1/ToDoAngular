@@ -1,3 +1,4 @@
+
 ////////////////////// DEPENDENCIES AND VARIABLES //////////////////////
 
 var gulp = require('gulp');
@@ -28,6 +29,7 @@ var browserSync = require('browser-sync').create();
 var shell = require('gulp-shell');
 
 // sass dependencies.
+var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -107,7 +109,7 @@ gulp.task('htmlBuild', function(){
   browserSync.reload();
 });
 
-gulp.task('cssBuild', function(){
+gulp.task('cssBuild', ['sassBuild'], function(){
   browserSync.reload();
 });
 
@@ -121,6 +123,7 @@ gulp.task('tsBuild', ['ts'], function(){
 gulp.task('build', ['ts'], function(){
   // we can use the buildProduction environment variable here later.
   gulp.start('bower');
+  gulp.start('sassBuild');
 });
 
 ////////////////////// SETUP NOTES //////////////////////

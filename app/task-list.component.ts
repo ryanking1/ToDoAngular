@@ -40,9 +40,9 @@ export class TaskListComponent {
     this.selectedTask = clickedTask;
     this.onTaskSelect.emit(clickedTask);
   }
-  createTask(description: string): void {
+  createTask(taskArray: string[]): void {
     this.taskList.push(
-      new Task(description, this.taskList.length)
+      new Task(taskArray[0], taskArray[1], this.taskList.length)
     );
   }
   onChange(filterOption) {
