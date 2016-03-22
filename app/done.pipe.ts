@@ -1,9 +1,13 @@
 import { Pipe, PipeTransform } from 'angular2/core';
 import { Task } from './task.model';
 
+
+//  always set the pure value to false which is basically the default value...
+
+
 @Pipe ({
   name: "done",
-  pure: true
+  pure: false
 })
 
 export class DonePipe implements PipeTransform {
